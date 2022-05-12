@@ -5,4 +5,8 @@
     <RootNamespace>TMS_DotNet02_Online_Kaloska.TmTracker.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
+  </ItemGroup>
+
 </Project>
