@@ -9,7 +9,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto
     /// <summary>
     /// Record.
     /// </summary>
-    class RecordDto
+    public class RecordDto
     {
         /// <summary>
         /// Identifier.

@@ -9,7 +9,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto
     /// <summary>
     /// User.
     /// </summary>
-    class UserDto
+    public class UserDto
     {
         /// <summary>
         /// Identifier.

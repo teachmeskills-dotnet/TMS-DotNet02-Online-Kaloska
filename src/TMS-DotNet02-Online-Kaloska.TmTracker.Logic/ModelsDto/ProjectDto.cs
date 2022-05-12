@@ -9,7 +9,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto
     /// <summary>
     /// Project.
     /// </summary>
-    class ProjectDto
+    public class ProjectDto
     {
         /// <summary>
         /// Identifier.
