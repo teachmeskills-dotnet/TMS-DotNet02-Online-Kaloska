@@ -9,7 +9,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models
     /// <summary>
     /// Goal.
     /// </summary>
-    class Goal
+    public class Goal
     {
         /// <summary>
         /// Identifier.

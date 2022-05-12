@@ -10,7 +10,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models
     /// <summary>
     /// User.
     /// </summary>
-    class User : IdentityUser
+    public class User : IdentityUser
     {
         /// <summary>
         /// Name.

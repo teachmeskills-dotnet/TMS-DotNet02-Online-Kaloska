@@ -9,7 +9,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models
     /// <summary>
     /// Project.
     /// </summary>
-    class Project
+    public class Project
     {
         /// <summary>
         /// Identifier.
