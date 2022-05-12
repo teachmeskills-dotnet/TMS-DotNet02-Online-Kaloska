@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Contexts;
+using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
 {
@@ -29,12 +30,15 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
         {
             services.AddLocalization();
             // Database context 
-            services.AddDbContext<ApplicationContext>(options => 
+            services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnection")));
+
             services.AddControllersWithViews();
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -44,7 +48,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
@@ -52,6 +55,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
