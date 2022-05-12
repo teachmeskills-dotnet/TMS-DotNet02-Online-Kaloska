@@ -43,7 +43,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
             var goal = new Goal
             {
                 ProjectId = model.ProjectId,
-                Title = "переделать",
                 Text = model.Text,
                 IsComplete = model.IsComplete,
                 Start = DateTime.Now,
@@ -64,7 +63,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
                 ProjectId = goal.ProjectId,
                 IsComplete = goal.IsComplete,
                 Text = goal.Text,
-                Title = goal.Title,
                 Start = goal.Start,
                 End = goal.End,
             };
@@ -91,7 +89,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
             {
                 Id = goal.Id,
                 ProjectId = goal.ProjectId,
-                Title = goal.Title,
                 Text = goal.Text,
                 IsComplete = goal.IsComplete,
                 Start = goal.Start,
@@ -115,10 +112,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
                 throw new Exception($"'{nameof(model.Id)}' record not found.");
             }
 
-            if (goal.Title != model.Title)
-            {
-                goal.Title = model.Title;
-            }
             if (goal.IsComplete != model.IsComplete)
             {
                 goal.IsComplete = model.IsComplete;

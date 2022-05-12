@@ -25,10 +25,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Configurations
             builder.Property(goal => goal.Id)
                 .UseIdentityColumn();
 
-            builder.Property(goal => goal.Title)
-                .IsRequired()
-                .HasMaxLength(SqlConfiguration.SqlMaxLengthMedium);
-
             builder.Property(goal => goal.Text)
                 .IsRequired()
                 .HasMaxLength(SqlConfiguration.SqlMaxLengthLong);

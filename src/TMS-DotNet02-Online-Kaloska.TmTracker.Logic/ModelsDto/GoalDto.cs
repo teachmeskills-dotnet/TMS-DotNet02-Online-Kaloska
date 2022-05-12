@@ -20,10 +20,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto
         /// </summary>
         public int ProjectId { get; set; }
         /// <summary>
-        /// Title.
-        /// </summary>
-        public string Title { get; set; }
-        /// <summary>
         /// Text.
         /// </summary>
         public string Text { get; set; }
