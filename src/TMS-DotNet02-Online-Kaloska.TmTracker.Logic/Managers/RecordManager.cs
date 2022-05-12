@@ -12,7 +12,7 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto;
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
 {
     /// <inheritdoc cref="IRecordManager"/>
-    class RecordManager : IRecordManager
+    public class RecordManager : IRecordManager
     {
         private readonly IRepositoryManager<Record> _recordRepository;
         private readonly IRepositoryManager<Project> _projectRepository;

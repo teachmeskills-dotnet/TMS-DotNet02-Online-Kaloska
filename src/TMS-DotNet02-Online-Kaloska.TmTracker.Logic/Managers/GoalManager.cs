@@ -11,7 +11,7 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto;
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
 {
     /// <inheritdoc cref="IGoalManager"/>
-    class GoalManager : IGoalManager
+    public class GoalManager : IGoalManager
     {
         private readonly IRepositoryManager<Goal> _goalRepository;
         private readonly IRepositoryManager<Project> _projectRepository;

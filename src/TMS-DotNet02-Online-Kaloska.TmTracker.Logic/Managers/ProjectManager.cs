@@ -11,7 +11,7 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto;
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
 {
     /// <inheritdoc cref="IProjectManager"/>
-    class ProjectManager : IProjectManager
+    public class ProjectManager : IProjectManager
     {
         private readonly IRepositoryManager<Project> _projectRepository;
         public ProjectManager(IRepositoryManager<Project> projectRepository)

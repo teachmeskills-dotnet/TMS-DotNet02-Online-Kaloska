@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Contexts;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models;
+using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Interfaces;
+using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
 {
@@ -28,12 +30,17 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization();
             // Database context 
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnection")));
 
             services.AddControllersWithViews();
+
+            // Custom managers & services
+            services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
+            services.AddScoped<IProjectManager, ProjectManager>();
+            services.AddScoped<IRecordManager, RecordManager>();
+            services.AddScoped<IGoalManager, GoalManager>();
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
