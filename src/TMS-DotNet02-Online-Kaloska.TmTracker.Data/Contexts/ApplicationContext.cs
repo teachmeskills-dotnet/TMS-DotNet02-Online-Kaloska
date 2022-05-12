@@ -13,7 +13,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Contexts
     /// <summary>
     /// Main application context.
     /// </summary>
-    class ApplicationContext : IdentityDbContext<User>
+    public class ApplicationContext : IdentityDbContext<User>
     {
         /// <summary>
         /// Contructor with params.

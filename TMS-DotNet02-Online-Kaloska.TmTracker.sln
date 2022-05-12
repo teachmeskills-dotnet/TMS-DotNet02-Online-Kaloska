@@ -13,6 +13,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS-DotNet02-Online-Kaloska.TmTracker.Web", "TMS-DotNet02-Online-Kaloska.TmTracker.Web\TMS-DotNet02-Online-Kaloska.TmTracker.Web.csproj", "{D56A1591-877E-43F4-ABA4-6A712543955E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6535FCEC-1616-42AD-9ACC-77A4A98CCD39} = {6535FCEC-1616-42AD-9ACC-77A4A98CCD39}
+		{34809CEF-39EF-42AA-9495-2D47CC77AAE7} = {34809CEF-39EF-42AA-9495-2D47CC77AAE7}
 	EndProjectSection
 EndProject
 Global
