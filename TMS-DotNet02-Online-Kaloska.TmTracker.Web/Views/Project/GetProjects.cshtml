@@ -1,0 +1,37 @@
+﻿@model ProjectListViewModel
+@section css
+{
+    <link rel="stylesheet" href="~/css/fav.css" />
+    <link rel="stylesheet" href="~/css/Getproject.css" />
+}
+
+<div style="text-align: center;">
+    <div class="row mt-5 mb-2  ">
+        @{ foreach (ProjectViewModel projectViewModel in Model.Projects)
+            {
+<div class="homeblock col-lg-4">
+    <h2 style=" height: 80px;"> @projectViewModel.Name</h2>
+    <div style="display: flex;">
+        <p>@projectViewModel.CreationTime.ToString("D")</p>
+        @if (projectViewModel.IsFavourite == true)
+        {<div name="favt" id="@projectViewModel.Id" class="isfavt"></div>}
+        else
+        { <div name="favf" id="@projectViewModel.Id" class="isfavf"></div>}
+    </div>
+    <a class="btn btn-warning mb-2" style=" background-color: #f8f9fa; border-color: #343a40; box-shadow: 1px 0px 1px 3px #6c757d;" asp-controller="Project" asp-action="ShowRecord" asp-route-id="@projectViewModel.Id" asp-route-nameProject="@projectViewModel.Name">Выбрать проект</a>
+    <div style="height: 4px; width: 100%; background-color: black;"></div>
+</div> } }
+    </div>
+    @Html.ActionLink("Добавить проект", "CreateProjectModalWindow", null, null, new { id = "btnCreate", @class = "btn btn-small btn-info", @style = "background-color: #07363e;" })
+</div>
+<div id='dialogDiv' class='modal fade' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='dialogContent'></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/getproject.js"></script>
+}
