@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Interfaces;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto;
+using TMS_DotNet02_Online_Kaloska.TmTracker.Web.Models;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Web.ViewModels;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
@@ -179,6 +180,26 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
                 return Ok();
             }
             return BadRequest();
+        }
+        /// <summary>
+        /// Show Chat (Get.)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nameProject"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult ShowChat(int id, string nameProject)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var users = _userManager.Users;
+            var user = users.FirstOrDefault(u => u.Id == userId).FullName.ToString();
+            var userModel = new UserModel()
+            {
+                FullName = user,
+            };
+            ViewBag.nameProject = nameProject;
+            ViewBag.projectId = id;
+            return View(userModel);
         }
     }
 }
