@@ -22,25 +22,12 @@ var Elepsed = document.getElementById("elapsed");
 function buttomTimer() {
     if (Elepsed.classList.contains("base-timer__path-elapsed")) {
         Elepsed.classList.remove("base-timer__path-elapsed");
-        //Elepsed.classList.add("inputStop");
         startTimer();
     }
     else {
         Elepsed.classList.add("base-timer__path-elapsed");
-        //Elepsed.classList.remove("inputStop");
         clearInterval(timerInterval);
     }
-    //if (!ButtomTimer.classList.contains("inputStop")) {
-    //    ButtomTimer.classList.add("inputStop");
-    //    ButtomTimer.value = "Stop";
-    //    startTimer();
-
-    //}
-    //else {
-    //    ButtomTimer.value = "Start";
-    //    ButtomTimer.classList.remove("inputStop");
-    //    clearInterval(timerInterval);
-    //}
 }
 function Timer(projectId) {
     var goal = $('select[name=goalselect]').val();
@@ -70,7 +57,6 @@ function formatTime(time) {
     if (minutes < 10) {
         minutes = `0${minutes} `;
     }
-
     return `${hours}: ${minutes}: ${seconds} `;
 }
 

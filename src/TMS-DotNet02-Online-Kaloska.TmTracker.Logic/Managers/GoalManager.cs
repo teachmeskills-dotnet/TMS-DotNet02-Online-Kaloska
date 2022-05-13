@@ -56,7 +56,14 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
         {
             var goalList = await _goalRepository.GetAll().ToListAsync();
             var goal = goalList.FirstOrDefault(p => p.Id == id);
-
+            if (goal is null)
+            {
+                return new GoalDto
+                {
+                    Id = id,
+                    Text = "Задача удалена",
+                };
+            }
             return new GoalDto
             {
                 Id = goal.Id,
@@ -77,14 +84,6 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
                 .Where(r => r.ProjectId == projectId && r.Project.Users.Any(p => p.Id == userId))
                 .ToListAsync();
 
-            if (!goals.Any())
-            {
-                var goalList = new List<GoalDto>();
-                goalList.Add(new GoalDto() { Id = 0, Text = "Работы без задачи" });
-                return goalList;
-            }
-            //TODO 
-            goals.Add(new Goal() { Id = 0, Text = "Работы без задачи" });
             return (goals.Select(goal => new GoalDto
             {
                 Id = goal.Id,
