@@ -144,5 +144,41 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
         {
             return PartialView("CreateProjectModalWindow");
         }
+        /// <summary>
+        /// ShowUsers (Get.)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nameProject"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> ShowUsers(int id, string nameProject)
+        {
+            //Todo change to Mvc
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var users = await _projectManager.GetUsersByProjectIdAsync(id);
+            ViewBag.users = users;
+            ViewBag.nameProject = nameProject;
+            ViewBag.projectId = id;
+            return View();
+        }
+        /// <summary>
+        /// AddUserToProject
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="projectId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> AddUserToProject(string email, int projectId)
+        {
+            var users = _userManager.Users;
+            var user = users.FirstOrDefault(u => u.Email == email);
+            if (user is not null)
+            {
+                var project = await _projectManager.GetById(projectId);
+                await _projectManager.AddUsertoProject(project, user);
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }
