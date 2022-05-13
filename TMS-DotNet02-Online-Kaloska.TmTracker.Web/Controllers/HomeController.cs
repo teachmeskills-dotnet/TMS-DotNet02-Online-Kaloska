@@ -12,6 +12,9 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Web.Models;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
 {
+    /// <summary>
+    /// Home controller.
+    /// </summary>
     public class HomeController : Controller
     {
         private UserManager<User> _userManager;

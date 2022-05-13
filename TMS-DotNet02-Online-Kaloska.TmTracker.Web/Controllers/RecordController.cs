@@ -13,6 +13,9 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Web.ViewModels;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
 {
+    /// <summary>
+    /// Project controller.
+    /// </summary>
     public class RecordController : Controller
     {
         UserManager<User> _userManager;

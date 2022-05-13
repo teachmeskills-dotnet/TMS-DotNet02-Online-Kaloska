@@ -10,6 +10,9 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Web.ViewModels;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
 {
+    /// <summary>
+    /// Account controller.
+    /// </summary>
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;

@@ -12,6 +12,9 @@ using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.ModelsDto;
 
 namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
 {
+    /// <summary>
+    /// Goal controller.
+    /// </summary>
     [Authorize]
     public class GoalController : Controller
     {
