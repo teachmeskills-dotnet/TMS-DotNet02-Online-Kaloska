@@ -63,7 +63,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
                 NameUser = usersrec.FirstOrDefault(u => u.Id == r.UserId).FullName,
                 DateCreate = r.Start.ToString("d"),
                 Timer = r.End.ToString("T"),
-                GoalName = goals.FirstOrDefault(g => g.Id == r.GoalId).Text,
+                GoalName = goals.FirstOrDefault(g => g.Id == r.GoalId)?.Text ?? "Работа без задачи",
             }).ToList();
 
             SelectList selectListItems = new SelectList(goals.Where(g => g.IsComplete == false), "Id", "Text");
