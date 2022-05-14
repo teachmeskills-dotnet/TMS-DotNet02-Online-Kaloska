@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Data.Models;
 using TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Interfaces;
@@ -200,6 +201,54 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
             ViewBag.nameProject = nameProject;
             ViewBag.projectId = id;
             return View(userModel);
+        }
+        /// <summary>
+        /// SearchProjectByNameAsync (Get.)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> SearchProjectByNameAsync(string name)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var projects = await _projectManager.GetAllByUserIdAsync(userId);
+            ProjectListViewModel projectsView = new ProjectListViewModel();
+            string pattern = @"\d{4}(-)\d{2}(-)\d{2}";
+
+            if (!Regex.IsMatch(name, pattern))
+            {
+                IEnumerable<ProjectViewModel> SearchToDate()
+                {
+                    return projects.Where(x => x.Name.Contains(name)).Select(p => new ProjectViewModel
+                    {
+                        Id = p.Id,
+                        UserId = p.UserId,
+                        Name = p.Name,
+                        CreationTime = p.CreationTime,
+                        IsFavourite = p.IsFavourite,
+                    });
+                }
+                projectsView.Projects = SearchToDate();
+
+                return View(projectsView);
+            }
+            else
+            {
+                IEnumerable<ProjectViewModel> SearchToName()
+                {
+                    return projects.Where(x => x.CreationTime.ToString("yyyy-MM-dd").Equals(name)).Select(p => new ProjectViewModel
+                    {
+                        Id = p.Id,
+                        UserId = p.UserId,
+                        Name = p.Name,
+                        CreationTime = p.CreationTime,
+                        IsFavourite = p.IsFavourite,
+                    });
+                }
+                projectsView.Projects = SearchToName();
+
+                return View(projectsView);
+            }
         }
     }
 }

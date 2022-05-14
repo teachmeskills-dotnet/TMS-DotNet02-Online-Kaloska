@@ -49,6 +49,10 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
                         </li>
                     }
+                    <form class="d-flex" method="get">
+                        <input class="form-control me-2" type="search" translate="no" name="name" required placeholder="Поиск" aria-label="Поиск">
+                        <button class="btn btn-outline-success" translate="no" asp-controller="Project" asp-action="SearchProjectByName" style="max-height: 39px;" type="submit"><font style="vertical-align: inherit;"><font style="">Поиск</font></font></button>
+                    </form>
                 </ul>
             </div>
         </nav>
