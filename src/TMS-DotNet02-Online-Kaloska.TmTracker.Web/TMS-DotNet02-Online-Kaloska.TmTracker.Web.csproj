@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\TMS-DotNet02-Online-Kaloska.TmTracker.Logic\TMS-DotNet02-Online-Kaloska.TmTracker.Logic.csproj" />
+    <ProjectReference Include="..\TMS-DotNet02-Online-Kaloska.TmTracker.Logic\TMS-DotNet02-Online-Kaloska.TmTracker.Logic.csproj" />
   </ItemGroup>
 
 </Project>
