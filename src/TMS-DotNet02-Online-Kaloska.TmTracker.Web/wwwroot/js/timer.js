@@ -1,6 +1,11 @@
 ﻿let timePassed = Number(sessionStorage.getItem('timePassed'));
-
+let projectSessionId = Number(sessionStorage.getItem('projectId'));
+/*projectId*/
 if (timePassed === null) {
+    sessionStorage.setItem('timePassed', 0);
+}
+if (projectSessionId != projectId) {
+    timePassed = 0;
     sessionStorage.setItem('timePassed', 0);
 }
 //sessionStorage.setItem('timePassed', 0);
@@ -8,6 +13,7 @@ let timerInterval = null;
 
 document.getElementById("base-timer-label").innerHTML = formatTime(timePassed);
 function startTimer() {
+    sessionStorage.setItem('projectId', projectId);
     timerInterval = setInterval(() => {
 
         // Количество времени, которое прошло, увеличивается на  1
