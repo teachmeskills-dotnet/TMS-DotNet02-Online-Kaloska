@@ -183,6 +183,23 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Web.Controllers
             return BadRequest();
         }
         /// <summary>
+        /// Delete project (Post).
+        /// </summary>
+        /// <param name="projectId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> DeleteProject(int projectId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var project=await _projectManager.GetById(projectId);
+            if (project.UserId == userId)
+            {
+                await _projectManager.DeleteAsync(projectId, userId);
+                return Ok();
+            }
+            return BadRequest();
+        }
+        /// <summary>
         /// Show Chat (Get.)
         /// </summary>
         /// <param name="id"></param>

@@ -71,7 +71,10 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Logic.Managers
         {
             var projectlist = await _projectRepository.GetAll().ToListAsync();
             var project = projectlist.FirstOrDefault(p => p.Id == id);
-
+            if(project is null)
+            {
+                return new ProjectDto();
+            }
             return new ProjectDto
             {
                 Id = project.Id,

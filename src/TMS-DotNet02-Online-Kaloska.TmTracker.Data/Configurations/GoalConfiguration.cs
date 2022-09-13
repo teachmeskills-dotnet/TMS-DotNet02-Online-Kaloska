@@ -38,7 +38,7 @@ namespace TMS_DotNet02_Online_Kaloska.TmTracker.Data.Configurations
             builder.HasOne(goal => goal.Project)
                 .WithMany(project => project.Goals)
                 .HasForeignKey(goal => goal.ProjectId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

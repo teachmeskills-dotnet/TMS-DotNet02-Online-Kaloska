@@ -20,3 +20,20 @@
         max-width: 31%;
     }
 }
+.right-menu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 2px;
+    display: none;
+    color: black;
+}
+    .right-menu:hover {
+        background: #6feeee;
+        cursor: default
+    }
+
+    .right-menu-active {
+        display: block;
+    }
